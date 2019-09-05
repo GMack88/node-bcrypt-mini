@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { get } from "https";
 
 class App extends Component {
   constructor(props) {
@@ -35,10 +34,7 @@ class App extends Component {
     });
   }
 
-  logout() {
-    axios.get("/authlogout");
-    this.setState({ loggedInUser: {} });
-  }
+  logout() {}
 
   render() {
     let { loggedInUser, email, password } = this.state;

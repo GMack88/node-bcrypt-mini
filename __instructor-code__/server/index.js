@@ -68,24 +68,11 @@ app.post("/auth/login", (req, res, next) => {
             };
             res.status(200).send(req.session.user);
           } else {
-            res.status(401).send("http://bit.ly/unathorized");
+            res.status(200).send("http://bit.ly/unathorized");
           }
         });
     }
   });
-});
-
-app.get("/auth/logout", (req, res) => {
-  req.session.destroy();
-  res.sendStatus(200);
-});
-
-app.get("/auth/user", (req, res) => {
-  if (req.session.user) {
-    res.status(200).send(req.session.user);
-  } else {
-    res.status(401).send("please log in first");
-  }
 });
 
 app.listen(SERVER_PORT, () => {
